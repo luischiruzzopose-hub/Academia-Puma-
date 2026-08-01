@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-  <rect width="200" height="200" fill="#ffffff"/>
-  <polygon points="20,30 180,30 100,175" fill="#ffffff" stroke="#D6291F" stroke-width="14"/>
-  <text x="100" y="118" font-family="Arial, sans-serif" font-size="19" font-weight="800" fill="#D6291F" text-anchor="middle">CEDA</text>
-  <text x="100" y="140" font-family="Arial, sans-serif" font-size="19" font-weight="800" fill="#D6291F" text-anchor="middle">EL PASO</text>
-</svg>
