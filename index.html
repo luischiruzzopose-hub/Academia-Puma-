@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academia Puma — Sacá tu libreta de moto en Montevideo</title>
+<meta name="description" content="Academia Puma, escuela de conducción de motos en Montevideo. Cursos para libreta G2 y libretas profesionales G3, gestiones incluidas, moto para tu primer examen y equipo que te acompaña de principio a fin.">
+<meta name="keywords" content="academia de moto, libreta de moto Montevideo, curso G2, curso G3, libreta profesional, Academia Puma">
+<meta name="author" content="Academia Puma">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Academia Puma — Sacá tu libreta de moto">
+<meta property="og:description" content="Cursos de moto en Montevideo con gestiones incluidas y equipo que te acompaña de principio a fin.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/images/logo.jpg">
+<link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===== Firma visual: línea de ruta ===== -->
+<div class="route-spine" aria-hidden="true"><div class="route-progress" id="routeProgress"></div></div>
+
+<!-- ===================== HEADER / NAV ===================== -->
+<header class="header" id="header">
+  <div class="container header-inner">
+    <a href="#inicio" class="brand">
+      <img src="assets/images/logo.jpg" alt="Academia Puma" class="brand-logo">
+      <span class="brand-name">ACADEMIA <span>PUMA</span></span>
+    </a>
+
+    <nav class="nav" id="mainNav">
+      <a href="#inicio" class="nav-link">Inicio</a>
+      <a href="#equipo" class="nav-link">Nuestro equipo</a>
+      <a href="#precios" class="nav-link">Cursos y precios</a>
+      <a href="#requisitos" class="nav-link">Requisitos</a>
+      <a href="#reglas" class="nav-link">Cómo funciona</a>
+      <a href="#galeria" class="nav-link">Aprobados</a>
+      <a href="#simulacro" class="nav-link">Simulacro</a>
+      <a href="#contacto" class="nav-link nav-cta">Escribinos</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="https://instagram.com/academia_puma" target="_blank" rel="noopener" class="icon-link" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="inicio">
+    <div class="hero-media">
+      <img src="assets/images/alumno_04.jpg" alt="Alumno de Academia Puma con su libreta de conducir recién aprobada" class="hero-img">
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="container hero-content">
+      <span class="hero-badge reveal">🏍️ Academia de manejo de motos — Montevideo</span>
+      <h1 class="hero-title reveal delay-1">Tu libreta arranca con <em>nosotros</em></h1>
+      <p class="hero-text reveal delay-2">
+        Somos un equipo, no una empresa de trámites. Te acompañamos clase a clase, con las gestiones
+        resueltas y la moto puesta para tu primer examen práctico.
+      </p>
+
+      <div class="hero-actions reveal delay-3">
+        <a href="https://wa.me/59892467910" target="_blank" rel="noopener" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1s-.7.8-.9 1c-.2.2-.3.2-.6.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.5.3-.4a.6.6 0 0 0 0-.5c-.1-.1-.6-1.5-.9-2-.2-.5-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.6 1.1 2.8s1.7 2.6 4.1 3.6a13.6 13.6 0 0 0 1.4.5 3.3 3.3 0 0 0 1.5.1 2.5 2.5 0 0 0 1.6-1.1 2 2 0 0 0 .2-1.1c-.1-.1-.3-.2-.5-.3z"/></svg>
+          Escribinos por WhatsApp
+        </a>
+        <a href="#precios" class="btn btn-ghost">Ver cursos y precios</a>
+      </div>
+
+      <div class="hero-stats reveal delay-3">
+        <div class="hero-stat"><b>G2 y G3</b><span>Libretas particular y profesional</span></div>
+        <div class="hero-stat"><b>Moto incluida</b><span>Para tu primer examen práctico</span></div>
+        <div class="hero-stat"><b>0 adelantos</b><span>No pedimos pagos por anticipado</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EQUIPO / VALORES ===================== -->
+  <section class="features" id="equipo">
+    <div class="container">
+      <div class="section-head reveal center">
+        <p class="eyebrow">Así somos</p>
+        <h2 class="section-title">Nada de página acartonada. Somos un equipo.</h2>
+        <p class="section-text center-text">No te vamos a tratar como un número de trámite. Te explicamos todo antes de empezar y te acompañamos hasta que tengas la libreta en la mano.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card reveal delay-1">
+          <div class="feature-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
+          <h3>Gestiones incluidas</h3>
+          <p>Nos encargamos del trámite ante la Intendencia para que vos solo te concentres en manejar.</p>
+        </div>
+        <div class="feature-card reveal delay-2">
+          <div class="feature-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 17V7a2 2 0 0 1 2-2h8l6 6v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M14 5v6h6"/></svg></div>
+          <h3>Material teórico</h3>
+          <p>Te damos el material de estudio y te sumamos el simulacro online para practicar cuantas veces quieras.</p>
+        </div>
+        <div class="feature-card reveal delay-3">
+          <div class="feature-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18M3 12h18"/></svg></div>
+          <h3>Moto para el examen</h3>
+          <p>La moto de la academia no tiene costo para tu primer examen práctico.</p>
+        </div>
+        <div class="feature-card reveal delay-1">
+          <div class="feature-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <h3>Horarios flexibles</h3>
+          <p>Coordinamos las clases según tu disponibilidad. Vos avisá con tiempo si necesitás mover una.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HORARIOS / PAGO ===================== -->
+  <section class="schedule">
+    <div class="container schedule-inner">
+      <div class="schedule-left reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+        <div>
+          <h3>Horarios a coordinar</h3>
+          <p>Nos adaptamos a tu disponibilidad, de lunes a domingo.</p>
+        </div>
+      </div>
+      <p class="schedule-note reveal delay-1">No aceptamos pagos por adelantado. Si tenés que cancelar una clase, avisanos con anticipación.</p>
+    </div>
+  </section>
+
+  <!-- ===================== CURSOS Y PRECIOS ===================== -->
+  <section class="pricing" id="precios">
+    <div class="container">
+      <div class="section-head reveal center">
+        <p class="eyebrow">Cursos y precios</p>
+        <h2 class="section-title">Elegí tu libreta</h2>
+        <p class="section-text center-text">Tenemos cursos para la libreta particular (G2) y para las libretas profesionales (G3).</p>
+      </div>
+
+      <div class="plan-tabs reveal">
+        <button class="plan-tab active" data-plan="g2">Libreta G2</button>
+        <button class="plan-tab" data-plan="g3">Libretas profesionales G3</button>
+      </div>
+
+      <!-- ---------- PLAN G2 ---------- -->
+      <div class="plan-panel active" data-plan="g2">
+        <div class="pricing-grid reveal">
+          <div class="price-card">
+            <h3>Curso básico</h3>
+            <div class="amount">$4.000</div>
+            <ul class="includes">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>3 clases prácticas de 1 hora cada una</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Material teórico incluido</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Gestiones ante la Intendencia</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Moto sin costo para tu primer examen práctico</li>
+            </ul>
+            <a href="https://wa.me/59892467910" target="_blank" rel="noopener" class="btn btn-primary btn-block">Consultar</a>
+          </div>
+          <div class="price-card featured">
+            <span class="tag-corner">Más completo</span>
+            <h3>Curso intensivo</h3>
+            <div class="amount">$8.000</div>
+            <ul class="includes">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>10 clases prácticas de 1 hora cada una</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Preparación más completa antes del examen</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Material teórico y gestiones incluidas</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Moto sin costo para tu primer examen práctico</li>
+            </ul>
+            <a href="https://wa.me/59892467910" target="_blank" rel="noopener" class="btn btn-gold btn-block">Consultar</a>
+          </div>
+        </div>
+
+        <div class="promo-banner reveal">
+          <div>
+            <h4>🤝 Promo amigos</h4>
+            <p>2 x $7.000 si se anotan e ingresan juntos. Consultanos por WhatsApp para coordinar.</p>
+          </div>
+          <a href="https://wa.me/59892467910" target="_blank" rel="noopener" class="btn btn-ghost">Quiero la promo</a>
+        </div>
+      </div>
+
+      <!-- ---------- PLAN G3 ---------- -->
+      <div class="plan-panel" data-plan="g3">
+        <div class="pricing-grid reveal">
+          <div class="price-card featured">
+            <span class="tag-corner">Curso G3</span>
+            <h3>Curso profesional</h3>
+            <div class="amount">$4.500</div>
+            <ul class="includes">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>2 clases prácticas de 1 hora cada una</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Gestiones ante la IMM</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Moto sin costo para tu primer examen práctico</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Si ya tenés libreta de otra categoría, exoneramos el teórico</li>
+            </ul>
+            <a href="https://wa.me/59892467910" target="_blank" rel="noopener" class="btn btn-gold btn-block">Consultar</a>
+          </div>
+          <div class="price-card">
+            <h3>Valores adicionales</h3>
+            <div class="amount" style="font-size:26px">A tu ritmo</div>
+            <ul class="includes">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Clase adicional: <strong style="color:var(--gold-2)">&nbsp;$1.100</strong></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Alquiler adicional de moto: <strong style="color:var(--gold-2)">&nbsp;$1.900</strong></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Válido para todas las libretas profesionales</li>
+            </ul>
+            <a href="https://wa.me/59892467910" target="_blank" rel="noopener" class="btn btn-ghost btn-block">Consultar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="paymethods reveal">
+        <span class="paymethod"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20"/></svg>Efectivo</span>
+        <span class="paymethod"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 10h16M4 14h16"/><rect x="2" y="5" width="20" height="14" rx="2"/></svg>Transferencia</span>
+        <span class="paymethod"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20"/></svg>Débito</span>
+        <span class="paymethod"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20"/></svg>Crédito hasta en 6 pagos sin recargo</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== REQUISITOS / TRÁMITE ===================== -->
+  <section class="steps" id="requisitos">
+    <div class="container">
+      <div class="section-head reveal center">
+        <p class="eyebrow">Antes de empezar</p>
+        <h2 class="section-title">Lo que necesitás para el trámite</h2>
+        <p class="section-text center-text">Nosotros te asesoramos en cada paso. Así es como funciona.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card reveal delay-1">
+          <span class="step-num">Paso 1</span>
+          <h3>Aspirante a licencia</h3>
+          <p>Pagás en Abitab o Redpagos, con tu cédula, el trámite de aspirante a licencia de conducir. Costo: $2.360.</p>
+        </div>
+        <div class="step-card reveal delay-2">
+          <span class="step-num">Paso 2</span>
+          <h3>Psicofísico</h3>
+          <p>Te lo hacés en los laboratorios habilitados por la Intendencia. Tenemos convenio con Cavica: mencionando Academia Puma te hacen 10% de descuento. 📍 Cavica queda frente a Médica Uruguaya, sobre Av. Italia.</p>
+        </div>
+        <div class="step-card reveal delay-3">
+          <span class="step-num">Paso 3</span>
+          <h3>Coordinamos tu clase</h3>
+          <p>Con esos dos requisitos prontos, nos escribís y arrancamos. Cualquier duda, estamos a las órdenes.</p>
+        </div>
+      </div>
+
+      <div class="req-box reveal">
+        <div>
+          <h3>Requisitos para libretas profesionales (G3)</h3>
+          <p class="section-text" style="margin-top:0">Válido para todas las categorías profesionales. Pedís día y hora al <strong style="color:var(--bone)">1950&nbsp;4000</strong>, opción 2, o desde <a href="https://montevideo.gub.uy" target="_blank" rel="noopener">montevideo.gub.uy</a>.</p>
+          <p class="section-text">El día agendado te presentás en el Equipo Técnico de Salud de Tránsito con estos análisis de sangre y orina (pueden tener hasta 6 meses):</p>
+          <div class="exam-values">
+            <span>Glicemia</span>
+            <span>Perfil lipídico</span>
+            <span>VDRL</span>
+            <span>Orina simple</span>
+          </div>
+        </div>
+        <div>
+          <h3>Además llevá</h3>
+          <ul class="req-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>Cédula vigente</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>Licencia de conducir</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>Certificado de vacuna antitetánica</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>Lentes, si usás</li>
+          </ul>
+          <p class="req-note">Sin expediente y cédula vigente no se puede concurrir a clase.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== REGLAS DEL EQUIPO / FAQ RÁPIDA ===================== -->
+  <section class="rules" id="reglas">
+    <div class="container">
+      <div class="section-head reveal center">
+        <p class="eyebrow">Cómo funciona</p>
+        <h2 class="section-title">Reglas claras, sin sorpresas</h2>
+      </div>
+
+      <div class="rules-grid">
+        <div class="rule-card reveal delay-1">
+          <div class="rule-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <h4>Validez del expediente</h4>
+          <p>El expediente tiene una validez de 180 días desde que iniciás el trámite. Si pasa ese plazo, hay que abonar todo de nuevo.</p>
+        </div>
+        <div class="rule-card reveal delay-2">
+          <div class="rule-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 17V7a2 2 0 0 1 2-2h8l6 6v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/></svg></div>
+          <h4>Ya tenés otra libreta</h4>
+          <p>Si ya contás con libreta de otra categoría, te exoneramos el examen teórico.</p>
+        </div>
+        <div class="rule-card reveal delay-3">
+          <div class="rule-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L2.7 17a2 2 0 0 0 1.7 3h15.2a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></div>
+          <h4>¿Tenés multas?</h4>
+          <p>El trámite se puede hacer con multas, excepto por alcohol en sangre. Con cualquier otra multa, hay que abonarla en su totalidad antes de continuar.</p>
+        </div>
+        <div class="rule-card reveal delay-1">
+          <div class="rule-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg></div>
+          <h4>Faltar a un examen</h4>
+          <p>Si faltás a un examen ya agendado, la Intendencia multa directamente al alumno.</p>
+        </div>
+        <div class="rule-card reveal delay-2">
+          <div class="rule-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></div>
+          <h4>Sin pagos por adelantado</h4>
+          <p>No aceptamos pagos por adelantado. Si tenés que cancelar una clase, avisanos con anticipación.</p>
+        </div>
+        <div class="rule-card reveal delay-3">
+          <div class="rule-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="17" r="1"/></svg></div>
+          <h4>Cédula siempre vigente</h4>
+          <p>Para concurrir a cualquier clase, necesitás tu cédula de identidad vigente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FLOTA ===================== -->
+  <section class="fleet" id="flota">
+    <div class="container">
+      <div class="section-head reveal center">
+        <p class="eyebrow">Nuestra flota</p>
+        <h2 class="section-title">Motos listas para tu clase y tu examen</h2>
+      </div>
+      <div class="fleet-grid">
+        <img class="reveal delay-1" src="assets/images/motos_02.jpg" alt="Flota de motos de Academia Puma estacionadas" loading="lazy">
+        <img class="reveal delay-2" src="assets/images/motos_03.jpg" alt="Motos de Academia Puma listas para clase" loading="lazy">
+        <img class="reveal delay-3" src="assets/images/motos_04.jpg" alt="Motos de Academia Puma en fila" loading="lazy">
+        <img class="reveal delay-1" src="assets/images/motos_01.jpg" alt="Motos de Academia Puma con cascos" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GALERIA / APROBADOS ===================== -->
+  <section class="gallery" id="galeria">
+    <div class="container">
+      <div class="section-head reveal center">
+        <p class="eyebrow">Nuestros alumnos</p>
+        <h2 class="section-title">Salieron con la libreta en la mano</h2>
+      </div>
+
+      <div class="gallery-grid">
+        <button class="gallery-item reveal delay-1" data-img="assets/images/alumno_01.jpg">
+          <img src="assets/images/alumno_01.jpg" alt="Alumno de Academia Puma aprobó su examen práctico de moto">
+          <span class="gallery-overlay">Ver</span>
+          <span class="gallery-badge">Aprobado</span>
+        </button>
+        <button class="gallery-item reveal delay-2" data-img="assets/images/alumno_02.jpg">
+          <img src="assets/images/alumno_02.jpg" alt="Alumna de Academia Puma aprobó su examen práctico de moto">
+          <span class="gallery-overlay">Ver</span>
+          <span class="gallery-badge">Aprobado</span>
+        </button>
+        <button class="gallery-item reveal delay-3" data-img="assets/images/alumno_03.jpg">
+          <img src="assets/images/alumno_03.jpg" alt="Alumno de Academia Puma aprobó su examen práctico de moto">
+          <span class="gallery-overlay">Ver</span>
+          <span class="gallery-badge">Aprobado</span>
+        </button>
+        <button class="gallery-item reveal delay-1" data-img="assets/images/alumno_04.jpg">
+          <img src="assets/images/alumno_04.jpg" alt="Alumno de Academia Puma aprobó su examen práctico de moto">
+          <span class="gallery-overlay">Ver</span>
+          <span class="gallery-badge">Aprobado</span>
+        </button>
+        <button class="gallery-item reveal delay-2" data-img="assets/images/alumno_05.jpg">
+          <img src="assets/images/alumno_05.jpg" alt="Dos alumnas de Academia Puma aprobaron su examen práctico de moto">
+          <span class="gallery-overlay">Ver</span>
+          <span class="gallery-badge">Aprobado</span>
+        </button>
+        <button class="gallery-item reveal delay-3" data-img="assets/images/alumno_06.jpg">
+          <img src="assets/images/alumno_06.jpg" alt="Grupo de alumnos de Academia Puma aprobó su examen práctico de moto">
+          <span class="gallery-overlay">Ver</span>
+          <span class="gallery-badge">Aprobado</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">&times;</button>
+    <button class="lightbox-prev" id="lightboxPrev" aria-label="Anterior">&#8249;</button>
+    <img src="" alt="" id="lightboxImg">
+    <button class="lightbox-next" id="lightboxNext" aria-label="Siguiente">&#8250;</button>
+  </div>
+
+  <!-- ===================== MANUAL DE CONDUCCIÓN ===================== -->
+  <section class="manual" id="manual">
+    <div class="container manual-inner">
+      <div class="manual-icon-wrap reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19V5a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M14 3v6h6"/><path d="M9 13h6M9 17h6"/></svg>
+      </div>
+      <div class="reveal delay-1">
+        <p class="eyebrow">Material de estudio</p>
+        <h2 class="section-title">Manual de conducción para autos y motos</h2>
+        <p class="section-text">Descargá la guía oficial de la Intendencia de Montevideo con las normas de tránsito, la señalización y las maniobras que necesitás conocer para prepararte para el examen teórico.</p>
+        <a href="https://montevideo.gub.uy/sites/default/files/biblioteca/manualautosymotos_0.pdf" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:20px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v13m0 0l-4-4m4 4l4-4"/><path d="M4 19h16"/></svg>
+          Descargar manual (PDF)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SIMULACRO DE EXAMEN TEÓRICO ===================== -->
+  <section class="quiz" id="simulacro">
+    <div class="container">
+      <div class="section-head reveal center">
+        <p class="eyebrow">Practicá</p>
+        <h2 class="section-title">Simulacro de examen teórico</h2>
+        <p class="section-text center-text">30 preguntas fijas + 10 preguntas al azar, con imágenes de señales de tránsito incluidas.</p>
+      </div>
+
+      <div class="quiz-frame-wrap reveal">
+        <iframe src="simulacro.html" title="Simulacro de examen teórico Academia Puma" loading="lazy"></iframe>
+      </div>
+
+      <p class="quiz-disclaimer">Este simulacro es una herramienta de práctica y no reemplaza el examen teórico oficial de la Intendencia correspondiente.</p>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-head reveal center">
+        <p class="eyebrow">Preguntas frecuentes</p>
+        <h2 class="section-title">Todo lo que necesitás saber</h2>
+      </div>
+
+      <div class="accordion">
+        <div class="accordion-item reveal">
+          <button class="accordion-trigger"><span>¿Qué incluye el curso básico?</span><span class="accordion-icon">+</span></button>
+          <div class="accordion-panel"><p>3 clases prácticas de 1 hora cada una, material teórico, gestiones ante la Intendencia y la moto sin costo para tu primer examen práctico.</p></div>
+        </div>
+        <div class="accordion-item reveal">
+          <button class="accordion-trigger"><span>¿Y el curso intensivo?</span><span class="accordion-icon">+</span></button>
+          <div class="accordion-panel"><p>10 clases prácticas de 1 hora cada una, para una preparación más completa antes del examen.</p></div>
+        </div>
+        <div class="accordion-item reveal">
+          <button class="accordion-trigger"><span>Además del curso, ¿tengo que pagar algo más?</span><span class="accordion-icon">+</span></button>
+          <div class="accordion-panel"><p>Sí: el trámite de aspirante a licencia en Abitab o Redpagos ($2.360) y el psicofísico en un laboratorio habilitado. Con Cavica tenés 10% de descuento mencionando Academia Puma.</p></div>
+        </div>
+        <div class="accordion-item reveal">
+          <button class="accordion-trigger"><span>¿Puedo anotarme con un amigo o familiar?</span><span class="accordion-icon">+</span></button>
+          <div class="accordion-panel"><p>Sí, consultá por la Promo amigos: 2 x $7.000 ingresando juntos.</p></div>
+        </div>
+        <div class="accordion-item reveal">
+          <button class="accordion-trigger"><span>¿Aceptan pagos por adelantado?</span><span class="accordion-icon">+</span></button>
+          <div class="accordion-panel"><p>No, no aceptamos pagos por adelantado. Trabajamos clase a clase.</p></div>
+        </div>
+        <div class="accordion-item reveal">
+          <button class="accordion-trigger"><span>¿Qué pasa si tengo multas de tránsito?</span><span class="accordion-icon">+</span></button>
+          <div class="accordion-panel"><p>Podés hacer el trámite igual, salvo que la multa sea por alcohol en sangre. Para cualquier otra multa, hay que pagarla en su totalidad antes de continuar.</p></div>
+        </div>
+        <div class="accordion-item reveal">
+          <button class="accordion-trigger"><span>¿Cuánto dura el expediente?</span><span class="accordion-icon">+</span></button>
+          <div class="accordion-panel"><p>180 días desde que iniciás el trámite. Pasado ese plazo, hay que abonar todo de nuevo.</p></div>
+        </div>
+        <div class="accordion-item reveal">
+          <button class="accordion-trigger"><span>Ya tengo otra libreta, ¿tengo que rendir el teórico?</span><span class="accordion-icon">+</span></button>
+          <div class="accordion-panel"><p>No, si ya contás con libreta de otra categoría te exoneramos el examen teórico.</p></div>
+        </div>
+        <div class="accordion-item reveal">
+          <button class="accordion-trigger"><span>¿Puedo cancelar una clase?</span><span class="accordion-icon">+</span></button>
+          <div class="accordion-panel"><p>Sí, solo pedimos que avises con anticipación para poder reorganizar la agenda.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACTO ===================== -->
+  <section class="contact" id="contacto">
+    <div class="container contact-inner">
+      <p class="eyebrow" style="justify-content:center">Contacto</p>
+      <h2 class="section-title">Tu libreta empieza con un mensaje</h2>
+      <p class="contact-text">Escribinos y coordinamos tu primera clase. Somos un equipo, así que hablás directo con nosotros.</p>
+
+      <a href="https://wa.me/59892467910" target="_blank" rel="noopener" class="btn-whatsapp-big">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1s-.7.8-.9 1c-.2.2-.3.2-.6.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.5.3-.4a.6.6 0 0 0 0-.5c-.1-.1-.6-1.5-.9-2-.2-.5-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.6 1.1 2.8s1.7 2.6 4.1 3.6a13.6 13.6 0 0 0 1.4.5 3.3 3.3 0 0 0 1.5.1 2.5 2.5 0 0 0 1.6-1.1 2 2 0 0 0 .2-1.1c-.1-.1-.3-.2-.5-.3z"/></svg>
+        Escribir por WhatsApp
+      </a>
+
+      <div class="contact-links">
+        <a href="tel:+59892467910"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2.1z"/></svg>092 467 910</a>
+        <a href="https://instagram.com/academia_puma" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>@academia_puma</a>
+        <a href="https://www.tiktok.com/@academia.puma" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2h3a5.5 5.5 0 0 0 4.5 4.9V10a8.9 8.9 0 0 1-4.7-1.4v7.9a6.6 6.6 0 1 1-6.6-6.6c.4 0 .7 0 1.1.1v3.3a3.3 3.3 0 1 0 2.3 3.2z" transform="translate(-2)"/></svg>@academia.puma</a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-9h3l.5-4H13V6.5c0-1.1.3-1.9 2-1.9h2V1.1A28 28 0 0 0 14 1c-3 0-5 1.8-5 5.2V9H6v4h3v9z"/></svg>Michel Pérez</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <img src="assets/images/logo.jpg" alt="Academia Puma" class="footer-logo">
+      <span class="brand-name" style="font-size:16px">ACADEMIA <span style="color:var(--gold-2)">PUMA</span></span>
+    </div>
+
+    <div class="footer-social">
+      <a href="https://wa.me/59892467910" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2z"/></svg>
+      </a>
+      <a href="https://instagram.com/academia_puma" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@academia.puma" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2h3a5.5 5.5 0 0 0 4.5 4.9V10a8.9 8.9 0 0 1-4.7-1.4v7.9a6.6 6.6 0 1 1-6.6-6.6c.4 0 .7 0 1.1.1v3.3a3.3 3.3 0 1 0 2.3 3.2z" transform="translate(-2)"/></svg>
+      </a>
+    </div>
+
+    <p class="footer-copy">© <span id="year"></span> Academia Puma. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<!-- ===================== FLOATING BUTTONS ===================== -->
+<a href="https://wa.me/59892467910" target="_blank" rel="noopener" class="fab-whatsapp" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+</a>
+<button class="fab-up" id="fabUp" aria-label="Volver arriba">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
