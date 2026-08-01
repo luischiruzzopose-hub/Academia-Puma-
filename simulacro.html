@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulacro teórico — Academia Puma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0a0a0d; --charcoal:#1b1b1f; --charcoal-2:#212126; --line:#2c2c31;
+    --gold:#e7a63c; --gold-2:#f6c976; --ember:#c1401f; --ember-2:#e2603a;
+    --bone:#f5efe3; --mist:#a9a496; --mist-dim:#6f6b62; --ok:#5fbf6b; --bad:#e2603a;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; background: var(--ink); color:var(--bone); font-family:'Manrope',sans-serif;
+    padding: 26px 22px 40px;
+  }
+  h1,h2,h3,.mono{ font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:.02em; }
+  .wrap{ max-width: 820px; margin: 0 auto; }
+
+  .top{ display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; margin-bottom: 18px; }
+  .top h2{ font-size:20px; margin:0; color:var(--bone); }
+  .badge{
+    font-size:12px; letter-spacing:.08em; background: rgba(232,168,60,.12); border:1px solid rgba(232,168,60,.35);
+    color: var(--gold-2); padding: 6px 14px; border-radius:999px; font-family:'Oswald',sans-serif; text-transform:uppercase;
+  }
+
+  .progress-track{ height:6px; border-radius:999px; background: var(--charcoal); overflow:hidden; margin-bottom: 26px; }
+  .progress-fill{ height:100%; background: linear-gradient(90deg, var(--ember-2), var(--gold)); width:0%; transition: width .3s ease; }
+
+  .card{ background: var(--charcoal); border:1px solid var(--line); border-radius:16px; padding: 26px; }
+  .q-count{ color: var(--gold-2); font-size:13px; letter-spacing:.1em; margin-bottom:10px; }
+  .q-text{ font-size: 18px; line-height:1.4; margin: 0 0 18px; color: var(--bone); font-weight:700; }
+  .q-img{ margin-bottom:18px; display:flex; justify-content:center; }
+  .q-img img{ max-width: 190px; width:100%; border-radius:12px; background:#fff; padding:14px; }
+
+  .options{ display:flex; flex-direction:column; gap:12px; }
+  .opt{
+    display:flex; align-items:center; gap:14px; text-align:left; width:100%;
+    background: var(--charcoal-2); border:1px solid var(--line); color: var(--bone);
+    padding: 14px 16px; border-radius: 12px; font-size:15px; font-family:'Manrope',sans-serif;
+    cursor:pointer; transition: border-color .2s ease, background .2s ease, transform .15s ease;
+  }
+  .opt:hover{ border-color: rgba(232,168,60,.5); transform: translateX(2px); }
+  .opt .letter{
+    width:26px; height:26px; border-radius:50%; background: rgba(232,168,60,.14); color:var(--gold-2);
+    display:flex; align-items:center; justify-content:center; font-family:'Oswald',sans-serif; font-size:13px; flex-shrink:0;
+  }
+  .opt.selected{ border-color: var(--gold); background: rgba(232,168,60,.1); }
+  .opt.correct{ border-color: var(--ok); background: rgba(95,191,107,.12); }
+  .opt.incorrect{ border-color: var(--bad); background: rgba(224,85,44,.12); }
+  .opt:disabled{ cursor:default; }
+
+  .actions{ display:flex; justify-content:space-between; align-items:center; margin-top:24px; gap:12px; flex-wrap:wrap; }
+  .btn{
+    font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:.04em; font-size:14px;
+    padding: 12px 24px; border-radius:999px; border:none; transition: transform .2s ease, opacity .2s ease;
+  }
+  .btn:disabled{ opacity:.4; cursor:not-allowed; }
+  .btn-primary{ background: linear-gradient(135deg, var(--ember-2), var(--ember)); color:#fff8f0; }
+  .btn-primary:hover:not(:disabled){ transform: translateY(-2px); }
+  .btn-ghost{ background: transparent; border:1px solid var(--line); color: var(--bone); }
+  .feedback{ margin-top:6px; font-size:13.5px; color: var(--mist); min-height: 18px; }
+  .feedback.ok{ color: var(--ok); }
+  .feedback.bad{ color: var(--bad); }
+
+  .start-screen, .end-screen{ text-align:center; padding: 20px 8px; }
+  .start-screen p, .end-screen p{ color: var(--mist); font-size:14.5px; max-width:52ch; margin: 12px auto 24px; }
+  .big-score{ font-family:'Oswald',sans-serif; font-size: 56px; color: var(--gold-2); line-height:1; margin: 6px 0; }
+  .score-label{ color: var(--mist); font-size:14px; text-transform:uppercase; letter-spacing:.08em; }
+
+  .review-list{ text-align:left; margin-top: 30px; display:flex; flex-direction:column; gap:14px; max-height: 340px; overflow-y:auto; padding-right:6px; }
+  .review-item{ border:1px solid var(--line); border-radius:12px; padding:14px 16px; background: var(--charcoal-2); }
+  .review-item .rq{ font-size:14px; color:var(--bone); margin-bottom:6px; }
+  .review-item .ra{ font-size:13px; }
+  .review-item .ra.ok{ color: var(--ok); }
+  .review-item .ra.bad{ color: var(--bad); }
+
+  ::-webkit-scrollbar{ width:8px; }
+  ::-webkit-scrollbar-thumb{ background: var(--line); border-radius: 8px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Pantalla inicial -->
+  <div class="card start-screen" id="startScreen">
+    <p class="badge" style="display:inline-block;margin-bottom:16px;">Simulacro Academia Puma</p>
+    <h2 style="font-size:24px;margin:0 0 4px;">¿Preparado para el examen teórico?</h2>
+    <p>40 preguntas: 30 fijas y 10 al azar, con señales de tránsito reales. Elegí una opción por pregunta, no hay tiempo límite.</p>
+    <button class="btn btn-primary" id="startBtn">Empezar simulacro</button>
+  </div>
+
+  <!-- Pantalla de pregunta -->
+  <div id="quizScreen" style="display:none;">
+    <div class="top">
+      <h2>Simulacro teórico</h2>
+      <span class="badge" id="counterBadge">Pregunta 1 / 40</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+
+    <div class="card">
+      <p class="q-count" id="qCategory">SEÑALIZACIÓN</p>
+      <div class="q-img" id="qImgWrap" style="display:none;"><img id="qImg" src="" alt="Señal de tránsito"></div>
+      <p class="q-text" id="qText">Texto de la pregunta</p>
+      <div class="options" id="optionsWrap"></div>
+      <p class="feedback" id="feedback"></p>
+      <div class="actions">
+        <button class="btn btn-ghost" id="skipBtn">Terminar ahora</button>
+        <button class="btn btn-primary" id="nextBtn" disabled>Siguiente pregunta</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pantalla final -->
+  <div class="card end-screen" id="endScreen" style="display:none;">
+    <p class="score-label">Resultado</p>
+    <div class="big-score" id="finalScore">0 / 40</div>
+    <p id="finalMsg">Mensaje de resultado</p>
+    <button class="btn btn-primary" id="retryBtn">Repetir simulacro</button>
+    <div class="review-list" id="reviewList"></div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+
+  // ---------- Banco de preguntas fijas (30) ----------
+  const FIXED = [
+    { cat:"SEÑALIZACIÓN", img:"assets/images/senal_pare.jpg", q:"¿Qué acción exige esta señal?", opts:["Reducir la velocidad y prestar atención","Detenerse totalmente y solo continuar cuando esté despejado","Ceder el paso sin detenerse si no viene nadie","Tocar bocina antes de cruzar"], answer:1 },
+    { cat:"SEÑALIZACIÓN", img:"assets/images/senal_ceda.jpg", q:"Esta señal significa que el conductor debe...", opts:["Detenerse siempre, haya o no tránsito","Ceder el paso a los vehículos de la vía a la que se incorpora","Aumentar la velocidad para incorporarse rápido","Girar obligatoriamente a la derecha"], answer:1 },
+    { cat:"SEÑALIZACIÓN", img:"assets/images/senal_peatonal.jpg", q:"¿Qué indica esta señal?", opts:["Zona escolar","Cruce de peatones próximo","Prohibido el paso de peatones","Parada de ómnibus"], answer:1 },
+    { cat:"SEÑALIZACIÓN", img:"assets/images/senal_curva_derecha.jpg", q:"Esta señal advierte sobre...", opts:["Una curva pronunciada hacia la derecha","Un desvío obligatorio a la derecha","Un camino sin salida","Doble sentido de circulación"], answer:0 },
+    { cat:"SEÑALIZACIÓN", img:"assets/images/senal_curva_izquierda.jpg", q:"Esta señal advierte sobre...", opts:["Un carril exclusivo para motos","Una curva pronunciada hacia la izquierda","Prohibido girar a la izquierda","Una rotonda próxima"], answer:1 },
+    { cat:"SEÑALIZACIÓN", img:"assets/images/senal_doble_mano.jpg", q:"¿Qué informa esta señal?", opts:["Calle de un solo sentido","Tramo de circulación en ambos sentidos","Prohibido adelantar","Fin de la autopista"], answer:1 },
+    { cat:"SEÑALIZACIÓN", img:"assets/images/senal_hospital.jpg", q:"¿Qué servicio indica esta señal?", opts:["Estación de servicio","Centro de salud u hospital cercano","Farmacia de turno","Comisaría"], answer:1 },
+    { cat:"SEÑALIZACIÓN", img:"assets/images/senal_no_estacionar.jpg", q:"Esta señal indica que en ese tramo...", opts:["Se puede estacionar solo de noche","Está prohibido estacionar","Está prohibido circular","Es zona de carga y descarga exclusiva"], answer:1 },
+    { cat:"NORMAS GENERALES", q:"En una intersección sin semáforo ni señalización, ¿quién tiene generalmente prioridad de paso?", opts:["El vehículo que viene por la derecha","El vehículo más grande","El que toca bocina primero","El que llega más rápido"], answer:0 },
+    { cat:"NORMAS GENERALES", q:"Ante un semáforo en amarillo, el conductor debe...", opts:["Acelerar para cruzar antes del rojo","Detenerse si puede hacerlo con seguridad","Ignorarlo si no hay agentes de tránsito","Tocar bocina y continuar"], answer:1 },
+    { cat:"SEGURIDAD VIAL", q:"¿Es obligatorio el uso del casco para conducir una moto en Uruguay?", opts:["Sí, siempre, para el conductor y el acompañante","Solo en rutas nacionales","Solo de noche","Solo para menores de edad"], answer:0 },
+    { cat:"SEGURIDAD VIAL", q:"Antes de cambiar de carril en moto, es fundamental...", opts:["Mirar el punto ciego y señalizar con el guiño","Acelerar bruscamente","Tocar bocina y cambiar de inmediato","No es necesario si el carril parece libre"], answer:0 },
+    { cat:"NORMAS GENERALES", q:"¿Está permitido conducir habiendo consumido alcohol?", opts:["Sí, si es poca cantidad","No, conducir bajo los efectos del alcohol está prohibido","Solo en rutas, no en ciudad","Depende del tipo de vehículo"], answer:1 },
+    { cat:"DOCUMENTACIÓN", q:"Para circular en moto, además de la licencia, el conductor debe llevar...", opts:["Solo su cédula de identidad","La cédula del vehículo y el seguro vigente","Ningún otro documento","El comprobante de compra de la moto"], answer:1 },
+    { cat:"NORMAS GENERALES", q:"La distancia de seguimiento con el vehículo de adelante debe...", opts:["Ser la mínima posible para no perder tiempo","Aumentar según la velocidad y las condiciones de la vía","Ser siempre fija sin importar la velocidad","No tiene relevancia en moto"], answer:1 },
+    { cat:"SEGURIDAD VIAL", q:"En caso de lluvia, un motociclista debe...", opts:["Aumentar la velocidad para salir antes del agua","Reducir la velocidad y aumentar la distancia de frenado","Circular pegado a otros vehículos para protegerse","No cambia nada respecto de un día seco"], answer:1 },
+    { cat:"NORMAS GENERALES", q:"¿Qué se debe hacer al aproximarse a un cruce peatonal con personas cruzando?", opts:["Tocar bocina para que se apuren","Detenerse y cederles el paso","Acelerar antes de que terminen de cruzar","Solo frenar si son varias personas"], answer:1 },
+    { cat:"SEÑALIZACIÓN", q:"Las señales de fondo amarillo con forma de rombo indican, en general...", opts:["Prohibiciones","Advertencias o peligros próximos","Información turística","Servicios cercanos"], answer:1 },
+    { cat:"SEÑALIZACIÓN", q:"Las señales circulares de borde rojo indican, en general...", opts:["Información","Prohibición o restricción","Advertencia de curva","Fin de una zona urbana"], answer:1 },
+    { cat:"NORMAS GENERALES", q:"¿Cuándo se debe usar la luz de giro (guiño)?", opts:["Solo en rutas","Antes de girar o cambiar de carril, con anticipación","Únicamente de noche","No es obligatorio en moto"], answer:1 },
+    { cat:"SEGURIDAD VIAL", q:"El uso de calzado adecuado al conducir una moto...", opts:["No influye en la seguridad","Ayuda a proteger los pies y mejorar el control de los mandos","Solo importa en invierno","Es obligatorio únicamente para motos de alta cilindrada"], answer:1 },
+    { cat:"NORMAS GENERALES", q:"En una rotonda, ¿quién suele tener prioridad?", opts:["El vehículo que ingresa","El vehículo que ya está circulando dentro de la rotonda","El vehículo más pesado","No hay prioridades en una rotonda"], answer:1 },
+    { cat:"DOCUMENTACIÓN", q:"¿Qué certificado médico se exige para tramitar libretas profesionales además del psicofísico habitual?", opts:["Certificado de vacuna antitetánica","Certificado de grupo sanguíneo únicamente","Ningún certificado adicional","Certificado de aptitud física deportiva"], answer:0 },
+    { cat:"NORMAS GENERALES", q:"Al conducir de noche en moto, es recomendable...", opts:["Apagar la luz baja para ahorrar batería","Mantener las luces reglamentarias encendidas y reducir la velocidad","Usar solo la luz de posición","Circular más cerca de la banquina"], answer:1 },
+    { cat:"SEGURIDAD VIAL", q:"¿Qué elemento de protección, además del casco, se recomienda para andar en moto?", opts:["Guantes y ropa que cubra brazos y piernas","Ninguno es necesario si se maneja despacio","Solo lentes de sol","Solo campera, sin importar el pantalón"], answer:0 },
+    { cat:"NORMAS GENERALES", q:"Adelantar a otro vehículo por la derecha en general está...", opts:["Permitido siempre que haya espacio","Prohibido salvo excepciones puntuales de la normativa","Permitido solo en rutas","Permitido solo para motos"], answer:1 },
+    { cat:"NORMAS GENERALES", q:"Ante la sirena de una ambulancia o bomberos, el conductor debe...", opts:["Mantener su velocidad y carril","Facilitar el paso, cediendo el lado que corresponda con seguridad","Detenerse en el medio de la calle","Acelerar para no estorbar"], answer:1 },
+    { cat:"DOCUMENTACIÓN", q:"El trámite de aspirante a licencia de conducir en Uruguay se paga en...", opts:["Únicamente en la Intendencia","Abitab o Redpagos, presentando la cédula", "Solo por transferencia bancaria","No requiere pago"], answer:1 },
+    { cat:"SEGURIDAD VIAL", q:"Frente a un vehículo detenido con las balizas encendidas, hay que...", opts:["Pasar rápido para no generar más tránsito","Reducir la velocidad y aumentar la distancia lateral", "Tocar bocina para que avance","Ignorarlo, no cambia la conducción"], answer:1 },
+    { cat:"NORMAS GENERALES", q:"¿Qué se debe hacer si el semáforo está en rojo intermitente?", opts:["Pasar sin detenerse porque no es un rojo fijo","Detenerse, verificar que no vengan vehículos y continuar con precaución","Ignorarlo, equivale a verde","Esperar a que cambie de color"], answer:1 }
+  ];
+
+  // ---------- Pool extra para las 10 preguntas al azar ----------
+  const POOL = [
+    { cat:"NORMAS GENERALES", q:"En zonas escolares, el límite de velocidad generalmente...", opts:["Se reduce respecto del resto de la vía","Aumenta para no generar demoras","No existe un límite especial","Solo aplica a ómnibus"], answer:0 },
+    { cat:"SEGURIDAD VIAL", q:"Circular en moto usando el celular...", opts:["Es seguro si se usa manos libres con auriculares","Está desaconsejado porque distrae la atención de la vía","Solo es riesgoso de noche","No afecta el manejo si se es experimentado"], answer:1 },
+    { cat:"NORMAS GENERALES", q:"Una línea continua en el pavimento generalmente indica que...", opts:["Se puede adelantar con precaución","No se debe cruzar ni adelantar en ese tramo","Es solo decorativa","Marca el límite de velocidad"], answer:1 },
+    { cat:"DOCUMENTACIÓN", q:"Para tramitar libretas profesionales en Montevideo, ¿dónde se solicita día y hora?", opts:["Únicamente de forma presencial en Cavica","Al 1950 4000 opción 2 o en montevideo.gub.uy","Por correo electrónico exclusivamente","No requiere agendar turno"], answer:1 },
+    { cat:"SEGURIDAD VIAL", q:"Frenar de forma brusca en moto sobre pavimento mojado puede provocar...", opts:["Mejor adherencia","Pérdida de estabilidad o derrape","Ningún efecto distinto al pavimento seco","Mayor frenado en menos distancia"], answer:1 },
+    { cat:"NORMAS GENERALES", q:"El triángulo de fondo blanco y borde rojo con la punta hacia abajo corresponde a la señal de...", opts:["Pare","Ceda el paso","Cruce peligroso","Doble mano"], answer:1 },
+    { cat:"NORMAS GENERALES", q:"¿Qué actitud es la más segura al aproximarse a una zona de obras en la vía?", opts:["Mantener la velocidad habitual","Reducir la velocidad y respetar la señalización temporal","Acelerar para pasar rápido la zona","Invadir el carril contrario si está despejado"], answer:1 },
+    { cat:"DOCUMENTACIÓN", q:"Si el expediente de trámite vence porque pasaron más de 180 días sin completarlo, ¿qué corresponde hacer?", opts:["Continuar el trámite sin cambios","Abonar nuevamente los conceptos para reiniciar el trámite","No es posible retomarlo nunca más","Se extiende automáticamente otros 180 días"], answer:1 },
+    { cat:"SEGURIDAD VIAL", q:"Llevar acompañante en moto sin el equipo de protección adecuado...", opts:["No representa ningún riesgo adicional","Aumenta el riesgo en caso de caída o frenada brusca","Solo es relevante en rutas","Está permitido si el trayecto es corto"], answer:1 },
+    { cat:"NORMAS GENERALES", q:"¿Qué corresponde hacer al escuchar la sirena de un vehículo policial que circula detrás?", opts:["Acelerar para despejar rápido el camino","Ceder el paso de forma segura, sin frenar bruscamente","Detenerse en el acto en cualquier lugar","No es necesario reaccionar"], answer:1 },
+    { cat:"SEGURIDAD VIAL", q:"Mantener la moto con neumáticos y frenos en buen estado...", opts:["Es opcional si se conduce con cuidado","Es una condición básica de seguridad para circular","Solo importa para motos de alta cilindrada","No influye en la distancia de frenado"], answer:1 },
+    { cat:"NORMAS GENERALES", q:"En caso de multas de tránsito impagas, ¿se puede continuar el trámite de la libreta?", opts:["Sí, sin ninguna condición","No se puede continuar hasta abonarlas en su totalidad (salvo excepciones puntuales)","Solo se pueden pagar después de aprobar el examen","Las multas no afectan el trámite de la libreta"], answer:1 },
+    { cat:"SEGURIDAD VIAL", q:"Circular con la visera del casco levantada a alta velocidad...", opts:["Mejora la visibilidad sin riesgos","Puede afectar la seguridad por el viento y partículas en los ojos","Es obligatorio en rutas","No tiene relación con la seguridad"], answer:1 },
+    { cat:"DOCUMENTACIÓN", q:"¿Hasta cuántos meses de antigüedad pueden tener los análisis de sangre y orina para el trámite de libretas profesionales?", opts:["3 meses","6 meses","12 meses","No tienen vencimiento"], answer:1 },
+    { cat:"NORMAS GENERALES", q:"Al estacionar la moto, es recomendable...", opts:["Dejarla en cualquier lugar sin restricciones","Verificar que no haya señalización de prohibido estacionar","No es necesario fijarse en la señalización para motos","Estacionar siempre sobre la senda peatonal"], answer:1 }
+  ];
+
+  const TOTAL_FIXED = FIXED.length;
+  const RANDOM_COUNT = 10;
+
+  let questions = [];
+  let current = 0;
+  let score = 0;
+  let answered = false;
+  let userAnswers = [];
+
+  const startScreen = document.getElementById('startScreen');
+  const quizScreen = document.getElementById('quizScreen');
+  const endScreen = document.getElementById('endScreen');
+  const startBtn = document.getElementById('startBtn');
+  const retryBtn = document.getElementById('retryBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const skipBtn = document.getElementById('skipBtn');
+  const counterBadge = document.getElementById('counterBadge');
+  const progressFill = document.getElementById('progressFill');
+  const qCategory = document.getElementById('qCategory');
+  const qText = document.getElementById('qText');
+  const qImgWrap = document.getElementById('qImgWrap');
+  const qImg = document.getElementById('qImg');
+  const optionsWrap = document.getElementById('optionsWrap');
+  const feedback = document.getElementById('feedback');
+  const finalScore = document.getElementById('finalScore');
+  const finalMsg = document.getElementById('finalMsg');
+  const reviewList = document.getElementById('reviewList');
+
+  function shuffle(arr){
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function buildQuestions(){
+    const randomExtra = shuffle(POOL).slice(0, RANDOM_COUNT);
+    questions = FIXED.concat(randomExtra);
+    current = 0; score = 0; userAnswers = [];
+  }
+
+  function startQuiz(){
+    buildQuestions();
+    startScreen.style.display = 'none';
+    endScreen.style.display = 'none';
+    quizScreen.style.display = 'block';
+    renderQuestion();
+  }
+
+  function renderQuestion(){
+    answered = false;
+    const total = questions.length;
+    const item = questions[current];
+    counterBadge.textContent = `Pregunta ${current + 1} / ${total}`;
+    progressFill.style.width = ((current) / total * 100) + '%';
+    qCategory.textContent = item.cat;
+    qText.textContent = item.q;
+    feedback.textContent = '';
+    feedback.className = 'feedback';
+    nextBtn.disabled = true;
+    nextBtn.textContent = (current === total - 1) ? 'Ver resultado' : 'Siguiente pregunta';
+
+    if (item.img){
+      qImg.src = item.img;
+      qImgWrap.style.display = 'flex';
+    } else {
+      qImgWrap.style.display = 'none';
+    }
+
+    optionsWrap.innerHTML = '';
+    const letters = ['A','B','C','D'];
+    item.opts.forEach((opt, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'opt';
+      btn.innerHTML = `<span class="letter">${letters[i]}</span><span>${opt}</span>`;
+      btn.addEventListener('click', () => selectOption(i, btn));
+      optionsWrap.appendChild(btn);
+    });
+  }
+
+  function selectOption(i, btn){
+    if (answered) return;
+    answered = true;
+    const item = questions[current];
+    const correct = i === item.answer;
+    userAnswers.push({ q: item.q, correct, chosen: item.opts[i], right: item.opts[item.answer] });
+
+    Array.from(optionsWrap.children).forEach((el, idx) => {
+      el.disabled = true;
+      if (idx === item.answer) el.classList.add('correct');
+      else if (idx === i) el.classList.add('incorrect');
+    });
+
+    if (correct){
+      score++;
+      feedback.textContent = '¡Correcto!';
+      feedback.className = 'feedback ok';
+    } else {
+      feedback.textContent = `Incorrecto. La respuesta correcta era: ${item.opts[item.answer]}`;
+      feedback.className = 'feedback bad';
+    }
+    nextBtn.disabled = false;
+  }
+
+  function nextQuestion(){
+    if (current < questions.length - 1){
+      current++;
+      renderQuestion();
+    } else {
+      finishQuiz();
+    }
+  }
+
+  function finishQuiz(){
+    quizScreen.style.display = 'none';
+    endScreen.style.display = 'block';
+    progressFill.style.width = '100%';
+    const total = questions.length;
+    finalScore.textContent = `${score} / ${total}`;
+    const pct = Math.round((score / total) * 100);
+    if (pct >= 85){
+      finalMsg.textContent = `¡Muy bien! Acertaste el ${pct}% de las preguntas. Estás encaminado para el examen teórico.`;
+    } else if (pct >= 60){
+      finalMsg.textContent = `Acertaste el ${pct}%. Vas bien, repasá el material teórico y volvé a intentarlo.`;
+    } else {
+      finalMsg.textContent = `Acertaste el ${pct}%. Te recomendamos repasar el manual y volver a practicar antes del examen.`;
+    }
+
+    reviewList.innerHTML = '';
+    userAnswers.forEach((a) => {
+      const div = document.createElement('div');
+      div.className = 'review-item';
+      div.innerHTML = `<div class="rq">${a.q}</div><div class="ra ${a.correct ? 'ok' : 'bad'}">${a.correct ? '✔ Respondiste correctamente' : `✘ Respondiste: ${a.chosen}. Correcta: ${a.right}`}</div>`;
+      reviewList.appendChild(div);
+    });
+  }
+
+  startBtn.addEventListener('click', startQuiz);
+  retryBtn.addEventListener('click', startQuiz);
+  nextBtn.addEventListener('click', nextQuestion);
+  skipBtn.addEventListener('click', finishQuiz);
+
+})();
+</script>
+</body>
+</html>
